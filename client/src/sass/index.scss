@@ -1,0 +1,53 @@
+$padding: 1em;
+$clrItem: #d3d3d3;
+.App {
+	display: grid;
+	grid-template-columns: 45% 55%;
+}
+
+.list {
+	.item {
+		border: 1px solid #e2e2e2 !important;
+		padding: 1.5em !important;
+		cursor: pointer;
+
+		transition: .3s ease !important;
+
+		&:hover {
+			background: $clrItem !important;
+		}
+	}
+	.item.active {
+		background: $clrItem !important;
+	}
+}
+
+.sidebar {
+	padding: $padding;
+	overflow-y: scroll;
+}
+.client-details {
+	padding: $padding;
+
+	.item {
+		img {
+			max-width: 128px;
+			max-height: 128px;
+		}
+	}
+}
+
+.fade-enter {
+	opacity: 0.01;
+}
+.fade-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+.fade-exit {
+	opacity: 1;
+}
+.fade-exit-active {
+	opacity: 0.01;
+	transition: opacity 500ms ease-in;
+}
