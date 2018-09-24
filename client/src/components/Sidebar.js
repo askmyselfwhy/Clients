@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Item, Input, Loader } from 'semantic-ui-react';
 import ListItem from './ListItem';
 import { setActiveClient } from '../actions';
+import FilteredClientsSelector from '../selectors/filtered_clients'
 
 class Sidebar extends Component {
 	state = {
@@ -16,21 +17,14 @@ class Sidebar extends Component {
 	itemClick = (value) => {
 		this.props.setClient(value);
 	};
-	depthSearch = (obj, expression) => {
-		let keys = Object.keys(obj);
-		let keysArray = [ ...keys ].filter((key) => {
-			let newObj = obj[key];
-			return newObj instanceof Object ? this.depthSearch(newObj, expression) : newObj.search(expression) !== -1;
-		});
-		return keysArray.length > 0 ? true : false;
-	};
+
 	render() {
 		let { clients, selected_client } = this.props;
-		let expression = RegExp(this.state.filter, 'i');
-		let filteredClients;
-		if (clients) {
-			filteredClients = [ ...clients ].filter((item) => this.depthSearch(item, expression));
-		}
+		let filter = this.state.filter;
+		let filteredClients = clients ? filteredClients = FilteredClientsSelector({
+			clients,
+			filter
+		}) : [] ;
 		return (
 			<aside className="sidebar">
 				<Input

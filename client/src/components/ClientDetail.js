@@ -8,7 +8,9 @@ class ClientDetail extends Component {
 		let { selected_client } = this.props;
 		return (
 			<section className="client-details">
-				<Item.Group key={selected_client && selected_client.contact.email} as="section">
+				<Item.Group
+					key={selected_client && selected_client.contact.email}
+					as="section">
 					{selected_client ? (
 						<Item className={this.props.className}>
 							<Item.Image src={selected_client.general.avatar} />

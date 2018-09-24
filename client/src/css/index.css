@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
 .App {
   display: grid;
   grid-template-columns: 45% 55%;
@@ -18,7 +26,11 @@
 
 .sidebar {
   padding: 1em;
+}
+.sidebar .list {
   overflow-y: scroll;
+  height: 100vh;
+  padding-right: 1em;
 }
 
 .client-details {
@@ -45,6 +57,35 @@
 .fade-exit-active {
   opacity: 0.01;
   transition: opacity 500ms ease-in;
+}
+
+@media only screen and (max-width: 767px) {
+  .sidebar .list .item {
+    padding: 1em !important;
+    margin: 1em 0 !important;
+  }
+}
+@media (max-width: 396px) {
+  body {
+    overflow: auto;
+  }
+
+  .App {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .sidebar {
+    padding: 1em;
+  }
+  .sidebar .list {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
