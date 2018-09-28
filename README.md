@@ -1,5 +1,5 @@
 # clients_app
-Incode test task
+Incode test task.
 To start the app you need to do the following steps:
 - Start the server:
 	- node server
